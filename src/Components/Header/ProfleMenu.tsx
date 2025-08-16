@@ -8,13 +8,15 @@ import {
   IconTrash,
   IconArrowsLeftRight,
 } from '@tabler/icons-react';
+import { useSelector } from 'react-redux';
 
 const ProfleMenu = () => {
+    const user=useSelector((state:any)=>state.user);
   return (
     <Menu shadow="md" width={200}>
       <Menu.Target>
          <div className='flex items-center gap-3 cursor-pointer'>
-            <span className='font-medium text-lg'>Boss</span>
+            <span className='font-medium text-lg'>{user.name}</span>
         <Avatar src="avatar.avif" size="{60}" alt="it's me" />
          </div>
         

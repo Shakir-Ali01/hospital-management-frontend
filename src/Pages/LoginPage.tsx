@@ -2,9 +2,16 @@ import { Button, PasswordInput, TextInput } from '@mantine/core'
 import { IconHeartbeat } from '@tabler/icons-react'
 
 import { useForm } from '@mantine/form';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import { loginUser } from '../Service/UserService.tsx';
+import { errorNotification, successNotification } from '../Utility/NotificationUtil.tsx';
+import { useDispatch } from 'react-redux';
+import { setJwt } from '../Slices/JwtSlices.tsx';
+import { jwtDecode } from 'jwt-decode';
+import { setUser } from '../Slices/UserSlice.tsx';
 const LoginPage = () => {
+     const dispatch=useDispatch();
+     const navegate = useNavigate();
      const form = useForm({
     initialValues: {
       email: '',
@@ -16,8 +23,21 @@ const LoginPage = () => {
     },
   });
   const handleSubmit = (values: typeof form.values) => {
-    console.log(values);
-  };
+    loginUser(values)
+      .then((_response) => { 
+        console.log(jwtDecode(_response));
+        // Handle successful login, e.g., redirect to dashboard
+        successNotification("Login successful!");
+        // You can also store the token in localStorage or context if needed
+        dispatch(setJwt(_response));//seting the jwt token in redux store
+        dispatch(setUser(_response));//setUser decoding the  token to  get all the cliams from it
+        // window.location.href = '/dashboard'; // Redirect to dashboard
+        // navegate('/dashboard'); // Redirect to dashboard using useNavigate
+  })
+      .catch((error) => {
+        errorNotification(error.response?.data?.errorMessage || "Login failed. Please try again.");
+        console.error("Login failed:", error);  
+  })};
   return (
     <div style={{ background:'url("/login-bg.png")' }} className='h-screen w-screen !bg-cover !bg-center
     !bg-no-repeat flex flex-col items-center justify-center'>

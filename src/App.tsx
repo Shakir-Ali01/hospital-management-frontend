@@ -1,10 +1,14 @@
 import React from 'react';
 import '@mantine/core/styles.css';
+import '@mantine/core/styles.css';
+import '@mantine/notifications/styles.css';
+
 import './App.css';
 import {createTheme, MantineProvider } from '@mantine/core';
 import AppRoutes from './Routers/AppRoutes.tsx';
-
-
+import { Notifications } from '@mantine/notifications';
+import { Provider } from 'react-redux';
+import Store from './Store.tsx';
 const theme = createTheme({
   /** Your theme override here */
   focusRing:"never",
@@ -26,10 +30,12 @@ const theme = createTheme({
 function App() {
   
   return (
+    <Provider store={Store}>
     <MantineProvider theme={theme}>
-    
+     <Notifications position='top-center'/>
      <AppRoutes/>
     </MantineProvider>
+    </Provider>
   );
 }
 
