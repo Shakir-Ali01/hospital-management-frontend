@@ -1,6 +1,8 @@
 import React from 'react';
 import '@mantine/core/styles.css';
 import '@mantine/core/styles.css';
+import '@mantine/dates/styles.css';
+import 'react-phone-input-2/lib/style.css'
 import '@mantine/notifications/styles.css';
 
 import './App.css';
@@ -28,7 +30,6 @@ const theme = createTheme({
 });
 
 function App() {
-  
   return (
     <Provider store={Store}>
     <MantineProvider theme={theme}>

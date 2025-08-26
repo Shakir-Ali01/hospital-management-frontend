@@ -17,7 +17,7 @@ const ProfleMenu = () => {
       <Menu.Target>
          <div className='flex items-center gap-3 cursor-pointer'>
             <span className='font-medium text-lg'>{user.name}</span>
-        <Avatar src="avatar.avif" size="{60}" alt="it's me" />
+        <Avatar src="/avatar.avif" size="{60}" alt="it's me" />
          </div>
         
       </Menu.Target>
