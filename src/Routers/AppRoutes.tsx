@@ -38,6 +38,7 @@ const AppRoutes = () => {
                  <Route path="dashboard" element={<Random/>}/>
                  <Route path="profile" element={<DoctorProfilePage/>}/>
                  <Route path="appointments" element={<Random/>}/>
+                 <Route path="pharmacy" element={<Random/>}/>
               </Route>
             </Routes>
     </BrowserRouter>

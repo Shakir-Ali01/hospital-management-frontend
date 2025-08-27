@@ -13,7 +13,11 @@ const axiosInnstance = axios.create({
 axiosInnstance.interceptors.request.use(
   (config:InternalAxiosRequestConfig) => {
     console.log('Request made with ', config);
-    // You can add any request interceptors here
+    // We can add any request interceptors here
+    const token=localStorage.getItem('token')
+    if(token){
+      config.headers.Authorization=`Bearer ${token}`;
+    }
     return config;
 });
 export default axiosInnstance;

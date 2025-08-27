@@ -1,12 +1,12 @@
 import { Avatar,Text } from '@mantine/core'
-import { IconCalendarCheck, IconHeartbeat, IconLayout2, IconLayoutDashboard, IconMoodHeart, IconPrescription, IconStethoscope, IconVaccine } from '@tabler/icons-react'
+import { IconCalendarCheck, IconHeartbeat, IconLayout2, IconLayoutDashboard, IconMoodHeart, IconPrescription, IconStethoscope, IconUser, IconVaccine } from '@tabler/icons-react'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 const links=[
     {name:"Dashboard",url:"/doctor/dashboard",icon:<IconLayoutDashboard stroke={1.5}/>},
 
-    {name:"Profile", url:"/doctor/profile", icon:<IconMoodHeart stroke={1.5}/>},
+    {name:"Profile", url:"/doctor/profile", icon:<IconUser stroke={1.5}/>},
     {name:"Appointments", url:"/doctor/appointments", icon:<IconCalendarCheck stroke={1.5}/>},
     {name:"Pharmacy", url:"/doctor/pharmacy", icon:<IconVaccine stroke={1.5}/>},
 
