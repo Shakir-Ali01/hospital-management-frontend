@@ -53,6 +53,10 @@ const Profile = () => {
     chronicDiseases: Array.isArray(profile.chronicDiseases) ? profile.chronicDiseases : (profile.chronicDiseases ? profile.chronicDiseases.split(",") : []),
     },
   });
+  const editHandle=()=>{
+    form.setValues({...profile,dob: profile.dob? new Date(profile.dob):null});
+    setEditState(true); 
+    }
 const handleSubmit = (e: any) => {  
     let values=form.values;
     e.preventDefault();
@@ -97,7 +101,7 @@ const handleSubmit = (e: any) => {
             <Button
               leftSection={<IconEdit />}
               className="bg-primary-400 hover:bg-primary-500 text-dark"
-              onClick={() => setEditState(true)}
+              onClick={editHandle}
               type="button"
             >Edit Profile
             </Button>
