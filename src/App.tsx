@@ -9,7 +9,9 @@ import './App.css';
 import {createTheme, MantineProvider } from '@mantine/core';
 import AppRoutes from './Routers/AppRoutes.tsx';
 import { Notifications } from '@mantine/notifications';
+import { modals, ModalsProvider } from '@mantine/modals';
 import { Provider } from 'react-redux';
+import { PrimeReactProvider } from 'primereact/api';
 import Store from './Store.tsx';
 const theme = createTheme({
   /** Your theme override here */
@@ -33,8 +35,13 @@ function App() {
   return (
     <Provider store={Store}>
     <MantineProvider theme={theme}>
+        <ModalsProvider>
+     
+     <PrimeReactProvider>
      <Notifications position='top-center'/>
      <AppRoutes/>
+     </PrimeReactProvider>
+    </ModalsProvider>
     </MantineProvider>
     </Provider>
   );

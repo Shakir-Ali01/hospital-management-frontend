@@ -1,12 +1,12 @@
 import React from 'react'
 import Header from '../Components/Header/Header.tsx';
 import { Outlet} from 'react-router-dom';
-import Sidebar from '../Doctor/Sidebar/Sidebar.tsx';
+import Sidebar from '../Components/Doctor/Sidebar/Sidebar.tsx';
 const DoctorDashboard = () => {
  return (
     <div className="flex">
         <Sidebar/>
-        <div className='w-full flex flex-col'>
+        <div className='w-full flex flex-col overflow-hidden'>
           <Header/>
           <Outlet/>
         </div>

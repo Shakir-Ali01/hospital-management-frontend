@@ -1,5 +1,5 @@
 import React from 'react'
-import Profile from '../../Patient/Profile/Profile.tsx'
+import Profile from '../../Components/Patient/Profile/Profile.tsx'
 
 const PatientProfile = () => {
   return (

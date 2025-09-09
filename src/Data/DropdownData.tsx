@@ -18,7 +18,30 @@ const bloodGroup: Record<string, string> = {
   O_POSITIVE: "O+",
   O_NEGATIVE: "O-"
 };
+const appointmentReasons = [
+  "General Consultation",
+  "Follow-Up Visit",
+  "Chronic Condition Management",
+  "Post-Surgery Follow-Up",
+  "Preventive Health Checkup",
+  "Prescription Refill",
+  "Diagnostic Test Review",
+  "Immunization / Vaccination",
+  "Specialist Referral Consultation",
+  "Pre-Surgical Evaluation",
+  "Mental Health Counseling",
+  "Nutrition & Diet Consultation",
+  "Pediatric Consultation",
+  "Women’s Health Consultation",
+  "Men’s Health Consultation",
+  "Annual Physical Examination",
+  "Minor Illness (Cold, Flu, Infection)",
+  "Skin / Dermatology Consultation",
+  "Pain Management Review",
+  "Telehealth / Virtual Check-In"
+];
+
 const doctorSpecializations = ["Cardiologist","Dermatologist","Neurologist","Pediatrician","Psychiatrist","Orthopedic","Oncologist","Gynecologist","Radiologist","ENT Specialist","Dentist","Urologist","Nephrologist","Endocrinologist","Gastroenterologist","Pulmonologist","General Surgeon","Ophthalmologist","Rheumatologist"];
 const doctorDepartments = ["Cardiology","Dermatology","Neurology","Pediatrics","Psychiatry","Orthopedics","Oncology","Gynecology","Radiology","ENT","Dentistry","Urology","Nephrology","Endocrinology","Gastroenterology","Pulmonology","General Surgery","Ophthalmology","Rheumatology","Emergency Medicine","Anesthesiology"];
 
-export{bloodGroups,doctorSpecializations,doctorDepartments,bloodGroup};
+export{bloodGroups,doctorSpecializations,doctorDepartments,bloodGroup,appointmentReasons};
