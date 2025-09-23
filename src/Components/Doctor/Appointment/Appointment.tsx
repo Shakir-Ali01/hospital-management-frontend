@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import { FilterMatchMode, FilterOperator } from 'primereact/api';
 import { DataTable, DataTableFilterMeta } from 'primereact/datatable';
 import { Column, ColumnFilterElementTemplateOptions } from 'primereact/column';
@@ -17,7 +17,7 @@ import { Tag } from 'primereact/tag';
 import { LoadingOverlay, Modal, Select, Textarea, TextInput } from '@mantine/core';
 import { Button } from '@mantine/core';
 import {  Text } from '@mantine/core';
-import { IconPlus, IconSearch } from '@tabler/icons-react';
+import { IconEye, IconPlus, IconSearch } from '@tabler/icons-react';
 import { useDisclosure } from '@mantine/hooks';
 import { getDoctorDropdown } from '../../../Service/DoctorProfileService.tsx';
 import { DatePicker, DateTimePicker } from '@mantine/dates';
@@ -31,7 +31,7 @@ import { ActionIcon} from '@mantine/core';
 import { IconEdit,IconTrash } from '@tabler/icons-react';
 import { modals } from '@mantine/modals';
 import { Toolbar } from 'primereact/toolbar';
-
+import { useNavigate } from "react-router-dom";
 
 interface Country {
   name: string;
@@ -57,6 +57,7 @@ interface Customer {
 }
 
 const Appointment=()=> {
+     const navigate = useNavigate();
      const [loading, setLoading]=useState(false);
      const [opened, { open, close }] = useDisclosure(false);
     
@@ -130,7 +131,7 @@ const Appointment=()=> {
     const formatCurrency = (value: number) => {
         return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
     };
-
+ 
     const onGlobalFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         let _filters:any = { ...filters };
@@ -234,6 +235,9 @@ const Appointment=()=> {
      }
     const actionBodyTemplate = (rowData) => {
         return <div>
+                  <ActionIcon color="green" onClick={()=>navigate(""+rowData.id)}>
+                      <IconEye size={20} stroke={1.5}/>
+                  </ActionIcon>
                   <ActionIcon color='red' onClick={()=>handleDelete(rowData)}>
                       <IconTrash size={20} stroke={1.5}/>
                   </ActionIcon>

@@ -15,6 +15,7 @@ import DoctorProfilePage from '../Pages/Doctor/DoctorProfilePage.tsx';
 import DoctorAppointmentPage from '../Pages/Doctor/DoctorAppointmentPage.tsx';
 import DoctorDashboard from '../Layout/DoctorDashboard.tsx';
 import PatientAppointmentPage from '../Pages/Patient/PatientAppointmentPage.tsx';
+import DoctorAppointmentDetailsPage from '../Pages/Doctor/DoctorAppointmentDetailsPage.tsx';
 const AppRoutes = () => {
   return (
     <>
@@ -40,6 +41,7 @@ const AppRoutes = () => {
                  <Route path="dashboard" element={<Random/>}/>
                  <Route path="profile" element={<DoctorProfilePage/>}/>
                  <Route path="appointments" element={<DoctorAppointmentPage/>}/>
+                 <Route path="appointments/:id" element={<DoctorAppointmentDetailsPage/>}/>
                  <Route path="pharmacy" element={<Random/>}/>
               </Route>
             </Routes>
